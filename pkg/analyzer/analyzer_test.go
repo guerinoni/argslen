@@ -41,3 +41,13 @@ func TestMaxExtended(t *testing.T) {
 	testdata := filepath.Join(filepath.Dir(filepath.Dir(wd)), "testdata")
 	analysistest.Run(t, testdata, NewAnalyzer(), "manyArgs.go")
 }
+
+func TestFolder(t *testing.T) {
+	wd, err := os.Getwd()
+	if err != nil {
+		t.Fatalf("failed to get wd: %s", err)
+	}
+
+	testdata := filepath.Join(filepath.Dir(filepath.Dir(wd)), "testdata")
+	analysistest.Run(t, testdata, NewAnalyzer(), "folder")
+}
