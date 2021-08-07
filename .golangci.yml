@@ -1,0 +1,77 @@
+run:
+  timeout: 5m
+
+linters:
+  disable-all: true
+  enable:
+    - deadcode
+    - errcheck
+    - gosimple
+    - govet 
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unused
+    - varcheck
+    - asciicheck
+    - bodyclose
+    - cyclop
+    - depguard
+    - dogsled
+    - dupl
+    - durationcheck
+    - errorlint
+    - exhaustive
+    # - exhaustivestruct
+    - exportloopref
+    - forbidigo
+    - forcetypeassert
+    - funlen
+    - gci
+    # - gochecknoglobals 
+    # - gochecknoinits
+    - gocognit
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - godox
+    - goerr113
+    - gofmt
+    - gofumpt 
+    - goheader
+    - goimports
+    - gomnd 
+    - gomodguard 
+    - goprintffuncname
+    - gosec
+    - ifshort
+    - importas
+    - lll
+    - makezero
+    - misspell
+    - nakedret
+    - nestif 
+    - nilerr
+    - nlreturn 
+    - noctx
+    - nolintlint
+    - paralleltest
+    - prealloc
+    - predeclared
+    - promlinter
+    - revive
+    - rowserrcheck 
+    - sqlclosecheck
+    - stylecheck
+    - tagliatelle
+    - testpackage
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - wastedassign
+    - whitespace
+    - wrapcheck
+    - wsl
