@@ -15,8 +15,10 @@ var (
 	skipTests    bool
 )
 
+const defaultMaxArgs = uint(5)
+
 func init() {
-	flagSet.UintVar(&maxArguments, "maxArguments", 5, "max arguments allowed for function.")
+	flagSet.UintVar(&maxArguments, "maxArguments", defaultMaxArgs, "max arguments allowed for function.")
 	flagSet.BoolVar(&skipTests, "skipTests", false, "should the linter execute on test files as well.")
 }
 
@@ -56,6 +58,7 @@ func run(pass *analysis.Pass) (interface{}, error) {
 func argsLen(fn *ast.FuncDecl) uint {
 	v := argsLenVisitor{}
 	ast.Walk(&v, fn)
+
 	return v.argsCounter
 }
 
