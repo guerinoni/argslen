@@ -22,6 +22,7 @@ func init() {
 	flagSet.BoolVar(&skipTests, "skipTests", false, "should the linter execute on test files as well.")
 }
 
+// NewAnalyzer create and returns a *analysis.Analyzer with argument list len checks.
 func NewAnalyzer() *analysis.Analyzer {
 	return &analysis.Analyzer{
 		Name:  "argsNum",
