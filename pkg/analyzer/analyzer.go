@@ -25,7 +25,7 @@ func init() {
 // NewAnalyzer create and returns a *analysis.Analyzer with argument list len checks.
 func NewAnalyzer() *analysis.Analyzer {
 	return &analysis.Analyzer{
-		Name:  "argsNum",
+		Name:  "argslen",
 		Doc:   "linter that warns for long argument list in function.",
 		Run:   run,
 		Flags: flagSet,
