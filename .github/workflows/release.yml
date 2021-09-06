@@ -1,0 +1,45 @@
+name: release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            artifact_name: argslen
+            asset_name: argslen-linux-amd64
+          - os: windows-latest
+            artifact_name: argslen.exe
+            asset_name: argslen-windows-amd64
+          - os: macos-latest
+            artifact_name: argslen
+            asset_name: argslen-macos-amd64
+
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Set up Go 1.x
+      uses: actions/setup-go@v2
+      with:
+        go-version: "1.17"
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        echo ${{ github.ref }} | cut -d / -f 3 >> tag
+        go build -ldflags="-X 'main.version=$(cat tag)'" -o ${{ matrix.artifact_name }} ./cmd/argslen
+    - name: Upload binaries 
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ${{ matrix.artifact_name }}
+        asset_name: ${{ matrix.asset_name }}
+        tag: ${{ github.ref }}
