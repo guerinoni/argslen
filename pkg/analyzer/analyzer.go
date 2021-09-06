@@ -46,7 +46,7 @@ func run(pass *analysis.Pass) (interface{}, error) {
 
 			numberArgs := argsLen(f)
 			if numberArgs > maxArguments {
-				pass.Reportf(node.Pos(), "args number for function %q is too high (%d)", f.Name.Name, numberArgs)
+				pass.Reportf(node.Pos(), "args number for function `%s` is too high (%d)", f.Name.Name, numberArgs)
 			}
 
 			return true
