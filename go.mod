@@ -1,4 +1,4 @@
-module github.com/bkielbasa/cyclop
+module github.com/guerinoni/argslen
 
 go 1.17
 

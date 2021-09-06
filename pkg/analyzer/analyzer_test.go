@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/bkielbasa/cyclop/pkg/analyzer"
+	"github.com/guerinoni/argslen/pkg/analyzer"
 	"golang.org/x/tools/go/analysis/analysistest"
 )
 
