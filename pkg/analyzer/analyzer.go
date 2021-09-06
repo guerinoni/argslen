@@ -2,6 +2,7 @@ package analyzer
 
 import (
 	"flag"
+	"fmt"
 	"go/ast"
 	"strings"
 
@@ -46,7 +47,9 @@ func run(pass *analysis.Pass) (interface{}, error) {
 
 			numberArgs := argsLen(f)
 			if numberArgs > maxArguments {
-				pass.Reportf(node.Pos(), "args number for function `%s` is too high (%d)", f.Name.Name, numberArgs)
+				n := f.Name.Name
+				msg := fmt.Sprintf("args number for function `%s` is too high, %d vs %d allowed", n, numberArgs, maxArguments)
+				pass.Reportf(node.Pos(), msg)
 			}
 
 			return true
