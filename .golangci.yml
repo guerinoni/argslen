@@ -4,33 +4,26 @@ run:
 linters:
   disable-all: true
   enable:
-    - deadcode
     - errcheck
     - gosimple
     - govet 
     - ineffassign
     - staticcheck
-    - structcheck
     - typecheck
     - unused
-    - varcheck
     - asciicheck
     - bodyclose
     - cyclop
-    - depguard
     - dogsled
     - dupl
     - durationcheck
     - errorlint
     - exhaustive
-    # - exhaustivestruct
     - exportloopref
     - forbidigo
     - forcetypeassert
     - funlen
     - gci
-    # - gochecknoglobals 
-    # - gochecknoinits
     - gocognit
     - goconst
     - gocritic
@@ -46,7 +39,6 @@ linters:
     - gomodguard 
     - goprintffuncname
     - gosec
-    - ifshort
     - importas
     - lll
     - makezero

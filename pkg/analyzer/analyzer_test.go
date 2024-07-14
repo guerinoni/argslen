@@ -31,7 +31,6 @@ func TestSkipTest(t *testing.T) {
 
 	a := analyzer.NewAnalyzer()
 	err = a.Flags.Set("skipTests", "true")
-
 	if err != nil {
 		t.Fatalf("failed to set flags %s", err)
 	}
@@ -50,7 +49,6 @@ func TestMaxExtended(t *testing.T) {
 
 	a := analyzer.NewAnalyzer()
 	err = a.Flags.Set("maxArguments", "10")
-
 	if err != nil {
 		t.Fatalf("failed to set flags %s", err)
 	}
